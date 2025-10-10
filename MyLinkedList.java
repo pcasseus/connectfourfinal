@@ -1,6 +1,6 @@
 package connectfour;
 
-public class LinkedList<T> {
+public class MyLinkedList<T> {
     private Node<T> head;
     private int size = 0;
 

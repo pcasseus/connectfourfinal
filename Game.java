@@ -18,6 +18,8 @@ public class Game {
     private TurnQueue turnQueue;
     private Scanner scanner;
 
+    private boolean keepPlaying = true;
+
     public Game() {
         /**
          * TODO: Initialize the board, undoStack, turnQueue with the correct
@@ -51,7 +53,6 @@ public class Game {
         printHelp();
         board.print();
 
-        boolean keepPlaying = true;
         while (keepPlaying) {
             /**
              * TODO:
