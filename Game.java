@@ -3,9 +3,14 @@ package connectfour;
 import java.util.Scanner;
 
 /**
- * The Game class orchestrates the console loop: reading commands,
- * dropping pieces, checking for wins, and handling undo/restart.
+ * High-level game controller for a console-based Connect-Four session.
  *
+ * Responsibilities:
+ * <ul>
+ *   <li>Initialize game components (board, turn queue, undo stack)</li>
+ *   <li>Read and interpret user commands from standard input</li>
+ *   <li>Perform drops/undoes/restarts and detect end-of-game conditions</li>
+ * </ul>
  */
 public class Game {
 
@@ -35,6 +40,9 @@ public class Game {
         turnQueue.enqueue(new Player("Player 2", 'O'));
     }
 
+    /**
+     * Print the interactive command help to standard output.
+     */
     private void printHelp() {
         System.out.println("Commands:");
         System.out.println("  [0-" + (board.getCols() - 1) + "]  -> drop a piece in that column");
@@ -46,6 +54,10 @@ public class Game {
         System.out.println();
     }
 
+    /**
+     * Start the main game loop which listens for user input and processes
+     * commands until the user quits or a game-ending condition occurs.
+     */
     public void run() {
         System.out.println("=== Connect-Four Mini (Terminal) ===");
         System.out.println("Goal: connect " + board.getConnect() + " in a row.");
@@ -130,9 +142,12 @@ public class Game {
     }
 
     /**
-     * TODO: Handle dropping a piece in the specified column.
-     * 
-     * @param col
+     * Handle a drop action for the current player into the specified
+     * column. Validates the column and updates the board, undo stack and
+     * turn queue accordingly. If the move ends the game it will set
+     * {@link #keepPlaying} to false.
+     *
+     * @param col target column index for the drop
      */
     private void handleDrop(int col) {
         if (col < 0 || col >= board.getCols()) {
@@ -162,7 +177,8 @@ public class Game {
     }
 
     /**
-     * TODO: Handle undoing the last move
+     * Undo the last move by popping the undo stack, clearing the board
+     * cell and rotating the turn queue so the undone player may play again.
      */
     private void handleUndo() {
         if (undoStack.isEmpty()) {
@@ -177,7 +193,9 @@ public class Game {
     }
 
     /**
-     * TODO: Restart the game
+     * Restart the currently running game by clearing the board and undo
+     * history. Players remain in the turn queue and play resumes from the
+     * current player.
      */
 
     private void restart() {

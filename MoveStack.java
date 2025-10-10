@@ -1,21 +1,28 @@
 package connectfour;
 
 /**
- * TODO:
- * Array backed stack for Move objects (LIFO). Implement from scratch
+ * Simple fixed-capacity LIFO stack for {@link Move} objects.
+ *
+ * Implemented with an array and an integer top index.
  */
 public class MoveStack {
     private Move[] data;
     private int top = -1;
 
+    /**
+     * Create a new MoveStack with the provided capacity.
+     *
+     * @param capacity maximum number of moves that can be stored
+     */
     public MoveStack(int capacity) {
         this.data = new Move[capacity];
     }
 
     /**
-     * TODO: Implement the pushing of the stack
-     * 
-     * @param m
+     * Push a move onto the stack. If the stack is full, the move is not
+     * stored and a message is printed.
+     *
+     * @param m move to push
      */
     public void push(Move m) {
         if (top + 1 < data.length) {
@@ -26,10 +33,12 @@ public class MoveStack {
         }
     }
 
-    /** TODO: Uncomment this method and implement the popping of the stack */
-    // public Move pop() {
-    // return m;
-    // }
+    /**
+     * Pop and return the most recently pushed move. If the stack is empty
+     * null is returned and a message is printed.
+     *
+     * @return the popped Move, or null if the stack was empty
+     */
     public Move pop() {
         if (isEmpty()) {
             System.out.println("The stack is empty & there's nothing to pop");
@@ -41,25 +50,25 @@ public class MoveStack {
     }
 
     /**
-     * TODO: You need to implement the isEmpty method
-     * 
-     * @return
+     * Check whether the stack contains no moves.
+     *
+     * @return true when empty
      */
     public boolean isEmpty() {
         return top == -1;
     }
 
     /**
-     * TODO: Implement the clear method
+     * Remove all entries from the stack.
      */
     public void clear() {
         top = -1;
     }
 
     /**
-     * TODO: You need to implement the size method
-     * 
-     * @return
+     * Return the number of stored moves.
+     *
+     * @return current size of the stack
      */
     public int size() {
         return top + 1;
