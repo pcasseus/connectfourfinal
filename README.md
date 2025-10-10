@@ -3,6 +3,12 @@ Connect-Four (Terminal)
 
 A minimal console-based Connect-Four implementation used for course exercises.
 
+Group Members
+-----
+- Patrick Casseus
+- Dante Hurr
+- Jaksh Patel
+
 Files
 -----
 - `Board.java`      — board state and win/draw logic
