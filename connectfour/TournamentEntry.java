@@ -1,3 +1,5 @@
+package connectfour;
+
 public class TournamentEntry implements Comparable<TournamentEntry> {
     private final String name;
     private int wins;
@@ -22,9 +24,9 @@ public class TournamentEntry implements Comparable<TournamentEntry> {
     @Override
     public int compareTo(TournamentEntry other) {
         if (this.wins != other.wins) {
-            return Integer.compare(other.wins, this.wins); // Descending by wins
+            return Integer.compare(other.wins, this.wins);
         }
-        return this.name.compareTo(other.name); // Ascending by name
+        return this.name.compareTo(other.name);
     }
 
     @Override

@@ -1,3 +1,5 @@
+package connectfour;
+
 import java.util.*;
 
 public class AVLTree<T extends Comparable<T>> {
@@ -28,7 +30,6 @@ public class AVLTree<T extends Comparable<T>> {
         return result;
     }
 
-    // Private methods
     private Node insert(Node node, T value) {
         if (node == null)
             return new Node(value);
@@ -38,7 +39,7 @@ public class AVLTree<T extends Comparable<T>> {
         else if (cmp > 0)
             node.right = insert(node.right, value);
         else
-            return node; // duplicate, do nothing
+            return node;
         return balance(node);
     }
 

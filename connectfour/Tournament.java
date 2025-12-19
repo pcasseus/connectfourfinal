@@ -1,3 +1,5 @@
+package connectfour;
+
 import java.util.*;
 
 public class Tournament {
@@ -33,18 +35,25 @@ public class Tournament {
     }
 
     public void recordMatchResult(String winner, String loser) {
-        stats.get(winner).recordWin();
-        stats.get(loser).recordLoss();
+        TournamentStats winnerStats = stats.get(winner);
+        TournamentStats loserStats = stats.get(loser);
 
-        standings.remove(new TournamentEntry(winner));
-        TournamentEntry updated = new TournamentEntry(winner);
-        updated.setWins(stats.get(winner).getWins());
-        standings.insert(updated);
+        TournamentEntry oldEntry = new TournamentEntry(winner);
+        oldEntry.setWins(winnerStats.getWins());
+        standings.remove(oldEntry);
+
+        winnerStats.recordWin();
+        loserStats.recordLoss();
+
+        TournamentEntry newEntry = new TournamentEntry(winner);
+        newEntry.setWins(winnerStats.getWins());
+        standings.insert(newEntry);
     }
 
     public void printStandings() {
         System.out.println("Tournament Standings (by Wins DESC, Name ASC):");
         List<TournamentEntry> ordered = standings.inOrder();
+
         int rank = 1;
         for (TournamentEntry entry : ordered) {
             System.out.printf("%d. %s (%d wins)%n", rank++, entry.getName(), entry.getWins());

@@ -1,3 +1,5 @@
+package connectfour;
+
 public class TournamentStats {
     private int wins = 0;
     private int losses = 0;

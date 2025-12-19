@@ -1,3 +1,5 @@
+package connectfour;
+
 public class Match {
     public final String player1;
     public final String player2;

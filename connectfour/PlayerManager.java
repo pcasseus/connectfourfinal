@@ -27,7 +27,7 @@ public class PlayerManager {
     public void login(String name) {
         PlayerProfile profile = players.get(name);
         if (profile == null) {
-            System.out.println("No such player.");
+            System.out.println("This player doesn't exist'.");
             return;
         }
         currentPlayer = profile;
@@ -46,7 +46,7 @@ public class PlayerManager {
     public void profile(String name) {
         PlayerProfile p = players.get(name);
         if (p == null) {
-            System.out.println("No such player.");
+            System.out.println("Player doesn't exist.");
         } else {
             p.printProfile();
         }

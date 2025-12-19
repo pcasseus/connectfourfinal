@@ -21,7 +21,6 @@ public class PlayerProfile implements Serializable {
     }
 
     public void recordResult(boolean isAI, int result) {
-        // result: +1 win, 0 draw, -1 loss
         if (result == 1) {
             wins++;
             if (isAI)
