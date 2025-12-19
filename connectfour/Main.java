@@ -11,7 +11,11 @@ public class Main {
      * @param args ignored command-line arguments
      */
     public static void main(String[] args) {
-        Game game = new Game();
-        game.run();
+        try {
+            Game game = new Game();
+            game.run();
+        } catch (Exception e) {
+            System.out.println("An error has occured: " + e.getMessage());
+        }
     }
 }

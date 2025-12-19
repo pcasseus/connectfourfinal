@@ -30,6 +30,19 @@ public class Board {
         clear();
     }
 
+    public Board(Board other) {
+        this.rows = other.rows;
+        this.cols = other.cols;
+        this.connect = other.connect;
+        this.grid = new char[rows][cols];
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                this.grid[r][c] = other.grid[r][c];
+            }
+        }
+    }
+
     /**
      * Clear the board, setting every cell to an empty space character.
      * This resets the board state for a new game.
@@ -157,15 +170,15 @@ public class Board {
      * Explanation of the winning-check algorithm:
      *
      * - We consider four direction vectors that represent unique lines through
-     *   a cell: horizontal (0,1), vertical (1,0), diagonal down-right (1,1)
-     *   and diagonal down-left (1,-1). For each direction we count how many
-     *   consecutive matching tokens exist starting at the last-placed cell in
-     *   both the forward and backward direction. The counts from both sides
-     *   include the origin cell, so we subtract 1 to avoid double-counting.
+     * a cell: horizontal (0,1), vertical (1,0), diagonal down-right (1,1)
+     * and diagonal down-left (1,-1). For each direction we count how many
+     * consecutive matching tokens exist starting at the last-placed cell in
+     * both the forward and backward direction. The counts from both sides
+     * include the origin cell, so we subtract 1 to avoid double-counting.
      *
      * - The helper {@link #countDirection(int,int,int,int,char)} recursively
-     *   walks in a straight line while the grid contains the same token. The
-     *   recursion ends when it reaches out-of-bounds or a different token.
+     * walks in a straight line while the grid contains the same token. The
+     * recursion ends when it reaches out-of-bounds or a different token.
      */
 
     /**
@@ -193,25 +206,26 @@ public class Board {
      * Column indices are shown above the grid and row indices to the left.
      */
     public void print() {
-        System.out.println(" ");
+        System.out.println();
         for (int c = 0; c < cols; c++) {
-            System.out.print(c + " ");
+            System.out.print(" " + c);
         }
         System.out.println();
-
-        System.out.println(" ");
-        for (int c = 0; c < cols; c++) {
-            System.out.println("--");
-        }
-        System.out.println();
-
-        for (int r = rows - 1; r >= 0; r--) {
-            System.out.printf("%2d ", r);
+        System.out.println("-".repeat(cols * 2));
+        for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
-                System.out.print(grid[r][c] + " ");
+                System.out.print("|" + grid[r][c]);
             }
-            System.out.println();
+            System.out.println("|");
         }
-        System.out.println();
+        System.out.println("-".repeat(cols * 2));
+    }
+
+    private void printSeparator() {
+        System.out.println(" ");
+        for (int c = 0; c < cols; c++) {
+            System.out.printf("---");
+        }
+        System.out.println("-");
     }
 }

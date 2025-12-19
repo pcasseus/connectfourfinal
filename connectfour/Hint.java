@@ -35,15 +35,15 @@ public class Hint {
          *
          * Implementation details:
          * - The method temporarily modifies the provided Board by calling
-         *   drop(...) and must undo every simulated drop with undo(...)
-         *   to restore the original board state for the next simulation.
+         * drop(...) and must undo every simulated drop with undo(...)
+         * to restore the original board state for the next simulation.
          * - When simulating the opponent's replies we iterate over all
-         *   columns and simulate a drop for the opponent. If any single
-         *   reply results in a win for the opponent we mark the original
-         *   column as unsafe and stop further checks for that column.
+         * columns and simulate a drop for the opponent. If any single
+         * reply results in a win for the opponent we mark the original
+         * column as unsafe and stop further checks for that column.
          * - This is a shallow two-ply simulation: it detects immediate
-         *   opponent wins but does not perform deeper minimax search. That
-         *   keeps complexity manageable while avoiding obvious blunders.
+         * opponent wins but does not perform deeper minimax search. That
+         * keeps complexity manageable while avoiding obvious blunders.
          */
 
         for (int col = 0; col < board.getCols(); col++) {

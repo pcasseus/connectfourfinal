@@ -107,12 +107,12 @@ public class TurnQueue {
      * Explanation of rotation semantics:
      *
      * - The queue models player turn order where {@link #peek()} returns the
-     *   player whose turn it currently is. After the current player completes
-     *   their move the queue should advance so the next player becomes the
-     *   current one. The simplest and side-effect free way to implement this
-     *   is to dequeue the head element and immediately enqueue it at the
-     *   tail. This preserves the relative order of players while advancing
-     *   the head pointer by one.
+     * player whose turn it currently is. After the current player completes
+     * their move the queue should advance so the next player becomes the
+     * current one. The simplest and side-effect free way to implement this
+     * is to dequeue the head element and immediately enqueue it at the
+     * tail. This preserves the relative order of players while advancing
+     * the head pointer by one.
      */
 
     /**

@@ -11,12 +11,16 @@ public record Player(String name, char token) {
      *
      * @return player's name
      */
-    public String name() { return name; }
+    public String name() {
+        return name;
+    }
 
     /**
      * Get the player's token character.
      *
      * @return single-character token
      */
-    public char token() { return token; }
+    public char token() {
+        return token;
+    }
 }
