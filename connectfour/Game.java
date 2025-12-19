@@ -76,7 +76,7 @@ public class Game {
         System.out.println();
         System.out.println("Game Modes Available");
         System.out.println("  game start human [X O]       -> start you vs another person");
-        System.out.println("  game start ai <level>        -> start you vs AI (easy|med|hard)");
+        System.out.println("  game start ai <level>        -> start you vs AI (easy/random|med|hard)");
         System.out.println();
         System.out.println("Tournament Commands");
         System.out.println("  tournament create <id> <p1>...      -> Create a tournament group (Ex: 't1 Patrick Dante Jaksh')");
