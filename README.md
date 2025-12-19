@@ -20,6 +20,18 @@ Files
 - `MyLinkedList.java` — tiny linked list used by the hint engine
 - `Player.java`     — player descriptor (name and token)
 - `TurnQueue.java`  — circular queue to manage player turns
+- `AIPlayer.java` — abstract superclass for AI implementations (easy, medium, hard)
+- `AVLTree.java` — self-balancing tree storing tournament standings sorted by wins and name
+- `EasyAI.java` — basic AI that selects random valid columns
+- `HardAI.java` — advanced AI using recursive minimax search with scoring
+- `Match.java` — stores metadata and outcome for a single tournament match
+- `MediumAI.java` — intermediate AI that blocks wins, favors center, avoids traps
+- `PlayerManager.java` — handles login, registration, profile lookup, and data persistence
+- `PlayerProfile.java` — persistent stats for a registered player, including rolling history
+- `Tournament.java` — manages round-robin scheduling, match queue, and match execution
+- `TournamentEntry.java` — wrapper for a player's tournament stats (wins, losses, name)
+- `TournamentStats.java` — node wrapper used by AVLTree for sorting and output
+
 
 Prerequisites
 -------------
@@ -76,3 +88,19 @@ Notes on gameplay and features
 - The board default is 6 rows x 7 columns and connect-4 win condition.
 - The hint engine is a shallow two-ply simulation that detects immediate
   opponent wins after your candidate move (it does not perform deep search).
+- The undo feature reverses the last move(s); in AI games, both the player and AI moves are undone.
+- The hint engine avoids unsafe moves that allow immediate losses on the opponent’s next turn.
+
+-----------------------------
+
+**AI difficulty levels include:**
+- Easy — selects random valid columns.
+- Medium — blocks wins, prefers center, avoids traps.
+- Hard — uses recursive minimax search with a static evaluation function.
+
+-----------------------------
+
+- Player accounts persist stats across sessions, including total and AI-specific win/draw/loss counts.
+- Each player profile keeps a rolling history of their last 10 game outcomes.
+- Tournaments simulate round-robin play between players using AI.
+- Tournament standings are stored in an AVL tree and ranked by win count (descending), then player name (ascending).
