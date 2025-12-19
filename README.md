@@ -59,7 +59,7 @@ java Main
 The game runs interactively in the terminal. Prompts are displayed for the current player.
 
 Available commands (type at the prompt):
-- `[0-<cols-1>]` — enter a column number to drop your token in that column (0-based index)
+- `<column number>` — type a number between 0 and 6 to drop your token
 - `undo` — undo the last move (restores the board and the turn order)
 - `hint` — compute and print a simple hint: recommended, safe and unsafe moves
 - `board` — reprint the current board snapshot
