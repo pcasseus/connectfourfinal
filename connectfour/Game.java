@@ -76,11 +76,10 @@ public class Game {
         System.out.println();
         System.out.println("Game Modes Available");
         System.out.println("  game start human [X O]       -> start you vs another person");
-        System.out.println("  game start ai <level>        -> start you vs AI (random|med|hard)");
+        System.out.println("  game start ai <level>        -> start you vs AI (easy|med|hard)");
         System.out.println();
         System.out.println("Tournament Commands");
-        System.out
-                .println("  tournament create <id> <p1>...      -> Create a tournament group (Ex: 't1 Patrick Dante')");
+        System.out.println("  tournament create <id> <p1>...      -> Create a tournament group (Ex: 't1 Patrick Dante Jaksh')");
         System.out.println("  tournament start <id>               -> Finalize players and build the match schedule");
         System.out.println("  next                                -> Simulate the next match in the schedule");
         System.out.println("  tournament standings <id>           -> View the tournament leaderboard");
@@ -282,6 +281,7 @@ public class Game {
             if (simBoard.isFull())
                 break;
         }
+
         return Math.random() < 0.5 ? m.player1 : m.player2;
     }
 
@@ -404,7 +404,7 @@ public class Game {
         restart();
 
         switch (level.toLowerCase()) {
-            case "random":
+            case "easy":
                 aiPlayer = new EasyAI();
                 break;
             case "med":
