@@ -43,7 +43,7 @@ Compile
 From the project directory (where the `.java` files live) run:
 
 ```bash
-javac *.java
+javac connectfour/*.java
 ```
 
 This will produce `.class` files next to each source file.
@@ -53,7 +53,7 @@ Run / Play (interactive)
 Start the game:
 
 ```bash
-java Main
+java connectfour.Main
 ```
 
 The game runs interactively in the terminal. Prompts are displayed for the current player.
